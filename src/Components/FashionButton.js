@@ -8,21 +8,18 @@ const FashionButton = ({ style, setTop, setBottom, setShoes }) => {
     }
     return false;
   });
-  console.log("top ", style.toLowerCase(), " ", topArr);
   const bottomArr = clothing.filter((item, index) => {
     if (item.type === "bottom" && item.dressCode === style.toLowerCase()) {
       return item;
     }
     return false;
   });
-  console.log("bottom ", style.toLowerCase(), " ", bottomArr);
   const shoeArr = clothing.filter((item, index) => {
     if (item.type === "shoes" && item.dressCode === style.toLowerCase()) {
       return item;
     }
     return false;
   });
-  console.log("shoes ", style.toLowerCase(), " ", shoeArr);
   const randomClothArrIndex = (clothingArr) => {
     return Math.floor(clothingArr.length * Math.random());
   };
@@ -32,8 +29,20 @@ const FashionButton = ({ style, setTop, setBottom, setShoes }) => {
         className="FashionButton"
         onClick={() => {
           setTop(topArr[randomClothArrIndex(topArr)].imageUrl);
+          console.log(
+            "Top dressCode",
+            topArr[randomClothArrIndex(topArr)].dressCode
+          );
           setBottom(bottomArr[randomClothArrIndex(bottomArr)].imageUrl);
+          console.log(
+            "Bottom dressCode",
+            bottomArr[randomClothArrIndex(bottomArr)].dressCode
+          );
           setShoes(shoeArr[randomClothArrIndex(shoeArr)].imageUrl);
+          console.log(
+            "Shoes dressCode",
+            shoeArr[randomClothArrIndex(shoeArr)].dressCode
+          );
         }}
       >
         {style}
